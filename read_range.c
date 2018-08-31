@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(int argv, char* argc[]){
 
@@ -48,4 +49,22 @@ int main(int argv, char* argc[]){
 		printf("High = %c (%d)\n", high, high);
 	}
 
+	FILE *file = stdin;
+	char line[256];
+
+	while(fgets(line, sizeof(line), file)){
+		for(int i = 0; i < strlen(line); ++i){
+			char c = line[i];
+			int charNum = (int)c;
+			if(c >= low && c <= high){
+				/* printf("ASCII value of %c = %d", c, c); */
+				/* printf("\t %i\n", charNum); */
+				data[charNum] = ++data[charNum];
+			}
+		}
+	}
+	for(int i = (int)low; i <= (int)high; ++i){
+		/* char indexChar = (char)i; */
+		printf("%c - %i\n", i, data[i]);
+	}
 }
