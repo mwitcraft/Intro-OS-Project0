@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
+char low;
+char high;
+int data[125];
+
 int main(int argv, char* argc[]){
 
 	/* Simple ideas */
@@ -19,10 +23,10 @@ int main(int argv, char* argc[]){
 	/* 6. if it is, add to data array */
 	/* 7. print */
 	
-	char low;
-	char high;
+	/* char low; */
+	/* char high; */
 
-	int data[125];
+	/* int data[125]; */
 	for(int i = 0; i < 125; ++i)
 		data[i] = 0;
 
@@ -31,22 +35,22 @@ int main(int argv, char* argc[]){
 	if(argv == 1){
 		low = ' ';
 		high = '}';
-		printf("Low = %c (%d)\n", low, low);
-		printf("High = %c (%d)\n", high, high);
+		/* printf("Low = %c (%d)\n", low, low); */
+		/* printf("High = %c (%d)\n", high, high); */
 	}
 /*	Will range from first character to '}'  */
 	if(argv == 2){
 		low = argc[1][0];
 		high = '}';
-		printf("Low = %c (%d)\n", low, low);
-		printf("High = %c (%d)\n", high, high);
+		/* printf("Low = %c (%d)\n", low, low); */
+		/* printf("High = %c (%d)\n", high, high); */
 	}
 /*	Will range from first character to second character  */
 	if(argv == 3){
 		low = argc[1][0];
 		high = argc[2][0];
-		printf("Low = %c (%d)\n", low, low);
-		printf("High = %c (%d)\n", high, high);
+		/* printf("Low = %c (%d)\n", low, low); */
+		/* printf("High = %c (%d)\n", high, high); */
 	}
 
 	FILE *file = stdin;
@@ -63,8 +67,24 @@ int main(int argv, char* argc[]){
 			}
 		}
 	}
+
+	/* for(int i = (int)low; i <= (int)high; ++i){ */
+	/* 	#<{(| char indexChar = (char)i; |)}># */
+	/* 	printf("%c - %i\n", i, data[i]); */
+	/* } */
+
+	printData();
+}
+
+void printData(){
+	printf("Range: %c-%c", low, high);
 	for(int i = (int)low; i <= (int)high; ++i){
-		/* char indexChar = (char)i; */
-		printf("%c - %i\n", i, data[i]);
+		/* the %4 puts 4 empty placeholder spaces that are filled if the number of */
+		/* occurences goes up a magnitude of 10 */
+		printf("\n%c: %4i ", i, data[i]);
+		for(int j = 0; j < data[i]; ++j){
+			printf("#");
+		}
 	}
+	printf("\n");
 }

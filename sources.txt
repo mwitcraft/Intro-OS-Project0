@@ -1,0 +1,5 @@
+http://www.asciitable.com/
+https://stackoverflow.com/questions/22736348/char-comparison-in-c
+https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
+https://stackoverflow.com/questions/757627/how-do-i-align-a-number-like-this-in-c
+
