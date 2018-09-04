@@ -76,6 +76,7 @@ int main(int argv, char* argc[]){
 	}
 	
 	printData();
+	writeData();
 	
 	/* c = fgetc(file); */
 	/* while(c != EOF){ */
@@ -118,8 +119,13 @@ void printData(){
 
 void writeData(){
 	FILE *outFile = fopen("DataOut", "w");
-
-	for(int i = (int)low; i <= (int)high; ++i){
 	
+	fprintf(outFile, "Range: %c-%c", low, high);
+	for(int i = (int)low; i <= (int)high; ++i){
+		fprintf(outFile, "\n%c: %4i ", i, data[i]);
+		for(int j = 0; j < data[i]; ++j){
+			fprintf(outFile, "#");
+		}
 	}
+	fprintf(outFile, "\n");
 }
