@@ -3,7 +3,7 @@
 
 char low;
 char high;
-int data[125];
+int data[126];
 
 int main(int argv, char* argc[]){
 
@@ -27,7 +27,7 @@ int main(int argv, char* argc[]){
 	/* char high; */
 
 	/* int data[125]; */
-	for(int i = 0; i < 125; ++i)
+	for(int i = 0; i < 126; ++i)
 		data[i] = 0;
 
 /* 	Will include all characters from space to '}' (close curly bracket)	 */
@@ -54,26 +54,53 @@ int main(int argv, char* argc[]){
 	}
 
 	FILE *file = stdin;
-	char line[256];
+	char line[99999];
 
-	while(fgets(line, sizeof(line), file)){
-		for(int i = 0; i < strlen(line); ++i){
-			char c = line[i];
-			int charNum = (int)c;
-			if(c >= low && c <= high){
-				/* printf("ASCII value of %c = %d", c, c); */
-				/* printf("\t %i\n", charNum); */
-				data[charNum] = ++data[charNum];
-			}
+	char c;
+
+	/* for(int i = 0; i < 125; ++i){ */
+	/* 	printf("Index: %i \t Count: %i\n", i, data[i]); */
+	/* } */
+        /*  */
+	/* printf("Index: 125 \t Count: %i\n", data[125]); */
+        /*  */
+
+	while(!feof(file)){
+		c = fgetc(file);
+		/* if(c == '}') */
+		/* 	printf("Close Bracket"); */
+		int charNum = (int)c;
+		if(c >= low && c <= high){
+			data[charNum] = ++data[charNum];
 		}
 	}
+	
+	printData();
+	
+	/* c = fgetc(file); */
+	/* while(c != EOF){ */
+	/* 	printf("%c", c); */
+	/* 	c = fgetc(file); */
+	/* } */
+
+	/* while(fgets(line, sizeof(line), file)){ */
+	/* 	for(int i = 0; i < strlen(line); ++i){ */
+	/* 		char c = line[i]; */
+	/* 		int charNum = (int)c; */
+	/* 		if(c >= low && c <= high){ */
+	/* 			printf("ASCII value of %c = %d", c, c); */
+	/* 			printf("\t %i\n", charNum); */
+	/* 			data[charNum] = ++data[charNum]; */
+	/* 		} */
+	/* 	} */
+	/* } */
 
 	/* for(int i = (int)low; i <= (int)high; ++i){ */
 	/* 	#<{(| char indexChar = (char)i; |)}># */
 	/* 	printf("%c - %i\n", i, data[i]); */
 	/* } */
 
-	printData();
+	/* printData(); */
 }
 
 void printData(){
@@ -87,4 +114,12 @@ void printData(){
 		}
 	}
 	printf("\n");
+}
+
+void writeData(){
+	FILE *outFile = fopen("DataOut", "w");
+
+	for(int i = (int)low; i <= (int)high; ++i){
+	
+	}
 }
