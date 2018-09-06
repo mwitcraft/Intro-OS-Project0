@@ -25,7 +25,6 @@ void printData(){
 		}
 	}
 	printf("\n");
-	printf("Final number: %i", data[255]);
 }
 
 /* Exactly the same as printData(), but instead writes to a file */
