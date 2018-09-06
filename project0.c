@@ -4,8 +4,8 @@
 char low;
 /* Character representing the highest character to count in this program */
 char high;
-/* Int array of size 126 with each index being the int representation of an ASCII character */
-int data[126];
+/* Int array of size 256 with each index being the int representation of an ASCII character */
+int data[256];
 
 /* Prints out the contents of the data array */
 /* First line is shows the range that was provided in the format "Range: {a}-{b}" with 'a' being the low end of the range and 'b' being the high end of the range */
@@ -25,6 +25,7 @@ void printData(){
 		}
 	}
 	printf("\n");
+	printf("Final number: %i", data[255]);
 }
 
 /* Exactly the same as printData(), but instead writes to a file */
@@ -47,7 +48,7 @@ void writeData(){
 int main(int argv, char* argc[]){
 	
 	/* Initializes array with 0s at every index (because numbers represent number of characters in file) */
-	for(int i = 0; i < 126; ++i)
+	for(int i = 0; i < 256; ++i)
 		data[i] = 0;
 
 	/* Will include all characters from space to '}' (close curly bracket)	 */
