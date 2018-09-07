@@ -87,7 +87,7 @@ int main(int argv, char* argc[]){
 	/* Prints data out to command line  */
 	printData();
 	/* Writes the data out to a file (used to test output with examples)  */
-	/* writeData(); */
+	writeData();
 
 	return 0;
 }
