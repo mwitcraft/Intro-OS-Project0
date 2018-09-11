@@ -24,3 +24,6 @@ Used to learn how to right flush numbers in c.
 
 https://os.mbed.com/questions/76202/How-to-read-a-binary-file-till-its-end/
 Used to learn the correct way to read characters in a file until the end of the file is reached.
+
+https://stackoverflow.com/questions/23331587/fgetc-returns-an-unknown-character
+Used to debug an issue I was having with my program detecting an extra character before end of file was reached.
