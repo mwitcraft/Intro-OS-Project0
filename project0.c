@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /* Character representing the lowest character to count in this program */
-char low;
+unsigned char low;
 /* Character representing the highest character to count in this program */
-char high;
+unsigned char high;
 /* Int array of size 256 with each index being the int representation of an ASCII character */
 int data[256];
 
@@ -27,6 +27,7 @@ void printData(){
 	printf("\n");
 }
 
+
 /* Exactly the same as printData(), but instead writes to a file */
 /* Used for testing with given examples */
 void writeData(){
@@ -44,11 +45,15 @@ void writeData(){
 
 /* Reads command line arguments to determine range and reads in the provided file to be processed */
 /* Performs necessary action on the data array to allow it to be printed and written out */
-int main(int argv, char* argc[]){
+int main(int argv, unsigned char* argc[]){
 	
 	/* Initializes array with 0s at every index (because numbers represent number of characters in file) */
 	for(int i = 0; i < 256; ++i)
 		data[i] = 0;
+
+	/* for(int i = 0; i < 256; ++i){ */
+	/* 	printf("%i: %i\n", i, data[i]); */
+	/* } */
 
 	/* Will include all characters from space to '}' (close curly bracket)	 */
 	/* space = 32 | '}' = 125 	 */
@@ -71,23 +76,19 @@ int main(int argv, char* argc[]){
 
 	/* Assigns file provided to a variable */
 	FILE *file = stdin;
-	char c;
 
 	/* Steps through each character in the file provided and increments location in array corresponding  */
 	/* to the character (by index) 	 */
+	/* Must store char read in from file into int or else it will read an extra incorrect character at the end */
 	while(!feof(file)){
-		c = fgetc(file);
-		int charNum = (int)c; /* Gets int representation of char currently on */
-		/* Only increments data in array if the char is in the range specified */
-		if(c >= low && c <= high){
-			data[charNum] = ++data[charNum];
-		}
+		int curChar = fgetc(file);
+		data[curChar] = ++data[curChar];
 	}
 
 	/* Prints data out to command line  */
 	printData();
 	/* Writes the data out to a file (used to test output with examples)  */
-	/* writeData(); */
+	writeData();
 
 	return 0;
 }
