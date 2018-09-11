@@ -1,6 +1,0 @@
-http://www.asciitable.com/
-https://stackoverflow.com/questions/22736348/char-comparison-in-c
-https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
-https://stackoverflow.com/questions/757627/how-do-i-align-a-number-like-this-in-c
-https://os.mbed.com/questions/76202/How-to-read-a-binary-file-till-its-end/
-https://stackoverflow.com/questions/23331587/fgetc-returns-an-unknown-character
